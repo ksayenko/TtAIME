@@ -33,6 +33,7 @@ namespace RunManatea
 
         bool bCheckFolder = false;
             bool bCheckFile = false;
+        bool bGridCompleted = false;
 
         private string SuggestedFileLocation = "";
         private string SuggestedFileName = "";
@@ -343,7 +344,96 @@ namespace RunManatea
 
         private void load3DGridToolStripMenuItem1_Click(object sender, EventArgs e)
         {
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.Title = "Please Choose the SoundLevel Grid File";
+            ofd.Filter = "grid files (*.grid)|*.grid|All files (*.*)|*.*";
+            ofd.FilterIndex = 1;
+            ofd.RestoreDirectory = true;
+            if (set == null) { set = new AppSettings(); set.ReadSettings(); }
+            FileInfo fi = null;
+            if (set != null && set.GridBinary != "")
+                fi = new FileInfo(set.GridBinary);
+            if (fi != null && fi.Exists)
+            {
+                ofd.FileName = set.GridBinary;
+                ofd.InitialDirectory = fi.Directory.FullName;
+            }
 
+            ofd.DefaultExt = "grid";
+
+            if (DialogResult.OK == ofd.ShowDialog())
+            {
+                set.GridBinary = ofd.FileName;
+
+                set.SaveSoundGridBinaryFieToConfigFile();
+            }
+            LoadBinaryGrid();
+        }
+        private void ResetText()
+        {
+            txtInfo.Text = "";
+        }
+        public async void LoadBinaryGrid()
+        {
+
+            ResetText();
+            var progress = new Progress<string>(
+                               update =>
+                               {
+                                   AddText(update, true);
+                               });
+
+            FileInfo binaryfile = null;
+            if (set != null && set.GridBinary != null && set.GridBinary != "")
+            {
+                binaryfile = new FileInfo(set.GridBinary);
+            }
+            
+
+
+            binaryfile = new FileInfo(set.GridBinary);
+            bool mMat = true;
+            if (binaryfile.Exists)
+            {
+                await Task.Run(() =>
+                {
+                    mMat = mat.ReadBinaryFile(binaryfile.FullName, progress);
+                    bGridCompleted = true;
+
+                });
+
+            //    //Mat.ProjectName = "CVOWC";
+            //    //Mat.ScenarioName = "Standard Drive";
+            //    //Mat.CoordinateSystem = "UTM Zone 18N";Mat.GridType = GridSoundMetric.SEL_Unweighted;
+
+            //    //Mat.WriteBinaryFile(binaryfile.FullName + "1s", progress);
+            //    ResetText();
+            //    List<string> info = dbSeaGridInfo();
+
+            //    for (int i = 0; i < info.Count; i++)
+            //    {
+            //        RichTextBoxExtensions.AppendText(this.rtbdbSeaGridInfo, info[i] + "\n", Color.Navy, 10, false, true);
+            //    }
+
+            //    if (mat.GridType != SoundSourceMetric.UNKNOWN)
+            //    {
+            //        string s = mat.GridType.ToString();
+            //        int index = 0;
+            //        foreach (object item in listBoxMetric.Items)
+            //        {
+            //            string s1 = item.ToString();
+            //            if (s1 == s)
+            //            {
+            //                listBoxMetric.SelectedIndex = index;
+            //                break;
+            //            }
+            //            index++;
+            //        }
+            //    }
+
+            //    if (!mMat)
+            //        RichTextBoxExtensions.AppendText(this.rtbdbSeaGridInfo, "Incorrect file " + binaryfile.FullName, Color.Red, 10, true);
+            }
         }
 
         private void ltbFile_Click(object sender, EventArgs e)
@@ -364,13 +454,26 @@ namespace RunManatea
 
         private void ltbFolder_Load(object sender, EventArgs e)
         {
-            int a = 2;
+            
            
         }
 
         private void ltbFolder_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            int a = 2;
+            
+        }
+
+        private void checkThePointToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (bGridCompleted)
+            {
+                CheckSoundGridPoint form = new CheckSoundGridPoint(mat);
+                form.ShowDialog();  
+
+            }
+            else { MessageBox.Show("Please Load the GridFile First");
+                load3DGridToolStripMenuItem1.PerformClick();
+            }
         }
     }
 }

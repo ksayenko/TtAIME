@@ -729,5 +729,39 @@ Leatherback turtle 	Dermochelys coriacea 	TU 	204 	220 	232 	189 	200 	2
             throw new NotImplementedException();
         }
 
+
+        public static Acoustic_Threshold
+            GetSpeciesThreshhold(Marine_Mammal_Dictionary dict,
+            string scientificname, string headerinfo)
+        {
+            Acoustic_Threshold thr = null;
+
+            int i = 0;
+            StandardAcousticThreshold threshold = null;
+            foreach (StandardAcousticThreshold s in dict.headers)
+            {
+                if (s.ToString() == headerinfo)
+                {
+                    threshold = s;
+                    break;
+                }
+                i++;
+            }
+
+            foreach (Marine_Species_Threshhold m in dict.DefaultList)
+            {
+                if (m.Marine_Species.Scientific_name == scientificname
+                    && m.Acoustic_Threshold.Name == threshold.Threshhold.Name 
+                    && m.Acoustic_Threshold.TheSoundSourceMetric == threshold.Threshhold.TheSoundSourceMetric  
+                    )
+                {
+
+                    thr = m.Acoustic_Threshold;
+                    return thr;
+                }
+            }
+            return thr;
+        }
+            
     }
 }

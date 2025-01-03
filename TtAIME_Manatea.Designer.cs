@@ -34,6 +34,7 @@
             this.loadSoundLevelGrodToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.loadPileProgressionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.load3MBMovementsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.readOutputFieToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.saveConfigurationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
@@ -47,7 +48,6 @@
             this.btnStartOver = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
             this.txtInfo = new System.Windows.Forms.RichTextBox();
-            this.readOutputFieToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -62,7 +62,7 @@
             this.helpToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(942, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(942, 30);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -80,7 +80,7 @@
             this.openLogFolderToolStripMenuItem,
             this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(46, 24);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(46, 26);
             this.fileToolStripMenuItem.Text = "File";
             // 
             // loadSoundLevelGrodToolStripMenuItem
@@ -106,6 +106,14 @@
             this.load3MBMovementsToolStripMenuItem.Size = new System.Drawing.Size(241, 26);
             this.load3MBMovementsToolStripMenuItem.Text = "Load 3MB Movements";
             this.load3MBMovementsToolStripMenuItem.Click += new System.EventHandler(this.load3MBMovementsToolStripMenuItem_Click);
+            // 
+            // readOutputFieToolStripMenuItem
+            // 
+            this.readOutputFieToolStripMenuItem.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.readOutputFieToolStripMenuItem.Name = "readOutputFieToolStripMenuItem";
+            this.readOutputFieToolStripMenuItem.Size = new System.Drawing.Size(241, 26);
+            this.readOutputFieToolStripMenuItem.Text = "Read Output Fie";
+            this.readOutputFieToolStripMenuItem.Click += new System.EventHandler(this.readOutputFieToolStripMenuItem_Click);
             // 
             // toolStripMenuItem1
             // 
@@ -147,7 +155,7 @@
             // 
             this.editToolStripMenuItem.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(49, 24);
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(49, 26);
             this.editToolStripMenuItem.Text = "Edit";
             // 
             // helpToolStripMenuItem
@@ -156,7 +164,7 @@
             this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.openMarineMammalThesholdToolStripMenuItem});
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(55, 24);
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(55, 26);
             this.helpToolStripMenuItem.Text = "Help";
             // 
             // openMarineMammalThesholdToolStripMenuItem
@@ -181,7 +189,7 @@
             this.tableLayoutPanel1.Controls.Add(this.txtInfo, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 28);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 30);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 5;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 22.5F));
@@ -189,7 +197,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 22.5F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 23.22695F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.751773F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(942, 645);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(942, 643);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
             // btnNext
@@ -199,7 +207,7 @@
             this.btnNext.FlatAppearance.BorderColor = System.Drawing.Color.Aqua;
             this.btnNext.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnNext.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNext.Location = new System.Drawing.Point(379, 584);
+            this.btnNext.Location = new System.Drawing.Point(379, 580);
             this.btnNext.MaximumSize = new System.Drawing.Size(180, 50);
             this.btnNext.MinimumSize = new System.Drawing.Size(180, 50);
             this.btnNext.Name = "btnNext";
@@ -215,7 +223,7 @@
             this.btnStartOver.FlatAppearance.BorderColor = System.Drawing.Color.Aqua;
             this.btnStartOver.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnStartOver.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnStartOver.Location = new System.Drawing.Point(191, 584);
+            this.btnStartOver.Location = new System.Drawing.Point(191, 580);
             this.btnStartOver.MaximumSize = new System.Drawing.Size(180, 50);
             this.btnStartOver.MinimumSize = new System.Drawing.Size(180, 50);
             this.btnStartOver.Name = "btnStartOver";
@@ -232,7 +240,7 @@
             this.btnClose.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnClose.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClose.Location = new System.Drawing.Point(757, 587);
+            this.btnClose.Location = new System.Drawing.Point(757, 583);
             this.btnClose.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.btnClose.MaximumSize = new System.Drawing.Size(120, 50);
             this.btnClose.MinimumSize = new System.Drawing.Size(120, 50);
@@ -250,18 +258,10 @@
             this.txtInfo.Location = new System.Drawing.Point(3, 3);
             this.txtInfo.Name = "txtInfo";
             this.tableLayoutPanel1.SetRowSpan(this.txtInfo, 4);
-            this.txtInfo.Size = new System.Drawing.Size(936, 575);
+            this.txtInfo.Size = new System.Drawing.Size(936, 571);
             this.txtInfo.TabIndex = 1;
             this.txtInfo.Text = "";
             this.txtInfo.TextChanged += new System.EventHandler(this.txtInfo_TextChanged);
-            // 
-            // readOutputFieToolStripMenuItem
-            // 
-            this.readOutputFieToolStripMenuItem.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.readOutputFieToolStripMenuItem.Name = "readOutputFieToolStripMenuItem";
-            this.readOutputFieToolStripMenuItem.Size = new System.Drawing.Size(241, 26);
-            this.readOutputFieToolStripMenuItem.Text = "Read Output Fie";
-            this.readOutputFieToolStripMenuItem.Click += new System.EventHandler(this.readOutputFieToolStripMenuItem_Click);
             // 
             // TtAIME_Manatea
             // 

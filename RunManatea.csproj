@@ -145,11 +145,23 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CheckSoundGridPoint.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CheckSoundGridPoint.Designer.cs">
+      <DependentUpon>CheckSoundGridPoint.cs</DependentUpon>
+    </Compile>
     <Compile Include="CreateGridBinary.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="CreateGridBinary.Designer.cs">
       <DependentUpon>CreateGridBinary.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LabelAndTextBox2.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="LabelAndTextBox2.Designer.cs">
+      <DependentUpon>LabelAndTextBox2.cs</DependentUpon>
     </Compile>
     <Compile Include="LabelTextBox.cs">
       <SubType>UserControl</SubType>
@@ -222,8 +234,14 @@
     <Compile Include="TtAIME_SoundGrid.Designer.cs">
       <DependentUpon>TtAIME_SoundGrid.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="CheckSoundGridPoint.resx">
+      <DependentUpon>CheckSoundGridPoint.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CreateGridBinary.resx">
       <DependentUpon>CreateGridBinary.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LabelAndTextBox2.resx">
+      <DependentUpon>LabelAndTextBox2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LabelTextBox.resx">
       <DependentUpon>LabelTextBox.cs</DependentUpon>

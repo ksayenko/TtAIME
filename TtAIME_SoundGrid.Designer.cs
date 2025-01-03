@@ -47,6 +47,7 @@
             this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.process3DSoundGridToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.soundLevelProbeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.checkThePointToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
@@ -80,7 +81,7 @@
             this.helpToolStripMenuItem});
             this.menuStripTop.Location = new System.Drawing.Point(0, 0);
             this.menuStripTop.Name = "menuStripTop";
-            this.menuStripTop.Size = new System.Drawing.Size(983, 30);
+            this.menuStripTop.Size = new System.Drawing.Size(983, 28);
             this.menuStripTop.TabIndex = 1;
             this.menuStripTop.Text = "menuStrip2";
             this.menuStripTop.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStripTop_ItemClicked);
@@ -97,7 +98,7 @@
             this.toolStripMenuItem1,
             this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(46, 26);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(46, 24);
             this.fileToolStripMenuItem.Text = "File";
             this.fileToolStripMenuItem.Click += new System.EventHandler(this.fileToolStripMenuItem_Click);
             // 
@@ -160,7 +161,7 @@
             this.pasteToolStripMenuItem,
             this.undoToolStripMenuItem});
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(49, 26);
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(49, 24);
             this.editToolStripMenuItem.Text = "Edit";
             // 
             // copyToolStripMenuItem
@@ -191,9 +192,10 @@
             // 
             this.toolsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.process3DSoundGridToolStripMenuItem,
-            this.soundLevelProbeToolStripMenuItem});
+            this.soundLevelProbeToolStripMenuItem,
+            this.checkThePointToolStripMenuItem});
             this.toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
-            this.toolsToolStripMenuItem.Size = new System.Drawing.Size(58, 26);
+            this.toolsToolStripMenuItem.Size = new System.Drawing.Size(58, 24);
             this.toolsToolStripMenuItem.Text = "Tools";
             // 
             // process3DSoundGridToolStripMenuItem
@@ -209,10 +211,17 @@
             this.soundLevelProbeToolStripMenuItem.Size = new System.Drawing.Size(242, 26);
             this.soundLevelProbeToolStripMenuItem.Text = "Sound Level Probe";
             // 
+            // checkThePointToolStripMenuItem
+            // 
+            this.checkThePointToolStripMenuItem.Name = "checkThePointToolStripMenuItem";
+            this.checkThePointToolStripMenuItem.Size = new System.Drawing.Size(242, 26);
+            this.checkThePointToolStripMenuItem.Text = "Check The Point";
+            this.checkThePointToolStripMenuItem.Click += new System.EventHandler(this.checkThePointToolStripMenuItem_Click);
+            // 
             // helpToolStripMenuItem
             // 
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(55, 26);
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(55, 24);
             this.helpToolStripMenuItem.Text = "Help";
             // 
             // tableLayoutPanel1
@@ -233,7 +242,7 @@
             this.tableLayoutPanel1.Controls.Add(this.ltbFolder, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.ltbFile, 0, 4);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 30);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 28);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 6;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.66277F));
@@ -242,7 +251,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 27.84827F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 27.84827F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 45F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(983, 676);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(983, 678);
             this.tableLayoutPanel1.TabIndex = 2;
             // 
             // groupBox3
@@ -333,7 +342,7 @@
             this.txtInfo.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.txtInfo.Name = "txtInfo";
             this.tableLayoutPanel1.SetRowSpan(this.txtInfo, 2);
-            this.txtInfo.Size = new System.Drawing.Size(973, 199);
+            this.txtInfo.Size = new System.Drawing.Size(973, 200);
             this.txtInfo.TabIndex = 1;
             this.txtInfo.Text = "";
             this.txtInfo.TextChanged += new System.EventHandler(this.txtInfo_TextChanged);
@@ -342,10 +351,10 @@
             // 
             this.btClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.btClose.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btClose.Location = new System.Drawing.Point(787, 631);
+            this.btClose.Location = new System.Drawing.Point(787, 634);
             this.btClose.MaximumSize = new System.Drawing.Size(193, 42);
             this.btClose.Name = "btClose";
-            this.btClose.Size = new System.Drawing.Size(193, 42);
+            this.btClose.Size = new System.Drawing.Size(193, 41);
             this.btClose.TabIndex = 2;
             this.btClose.Text = "Close";
             this.btClose.UseVisualStyleBackColor = true;
@@ -374,10 +383,10 @@
             this.ltbFolder.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ltbFolder.Font = new System.Drawing.Font("Calibri", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ltbFolder.LabelText = "Ascii Folder";
-            this.ltbFolder.Location = new System.Drawing.Point(3, 282);
+            this.ltbFolder.Location = new System.Drawing.Point(3, 283);
             this.ltbFolder.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ltbFolder.Name = "ltbFolder";
-            this.ltbFolder.Size = new System.Drawing.Size(977, 167);
+            this.ltbFolder.Size = new System.Drawing.Size(977, 168);
             this.ltbFolder.TabIndex = 3;
             this.ltbFolder.TextBoxEditable = true;
             this.ltbFolder.TextBoxText = "";
@@ -395,10 +404,10 @@
             this.ltbFile.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ltbFile.Font = new System.Drawing.Font("Calibri", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ltbFile.LabelText = "Save to Binary Grid File";
-            this.ltbFile.Location = new System.Drawing.Point(3, 457);
+            this.ltbFile.Location = new System.Drawing.Point(3, 459);
             this.ltbFile.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ltbFile.Name = "ltbFile";
-            this.ltbFile.Size = new System.Drawing.Size(977, 167);
+            this.ltbFile.Size = new System.Drawing.Size(977, 168);
             this.ltbFile.TabIndex = 4;
             this.ltbFile.TextBoxEditable = true;
             this.ltbFile.TextBoxText = "";
@@ -466,5 +475,6 @@
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.ComboBox cbGridType;
         private System.Windows.Forms.Button btnProcess;
+        private System.Windows.Forms.ToolStripMenuItem checkThePointToolStripMenuItem;
     }
 }
