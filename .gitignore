@@ -8,7 +8,10 @@
 *.suo
 *.user
 *.userosscache
-*.sln.docstates
+*.grid
+*.csv
+*.Manatea
+*.xlsx
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
@@ -361,3 +364,5 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+/label2/LabelAndTextBox2.cs
+/label2/LabelAndTextBox2.Designer.cs
