@@ -202,7 +202,253 @@ namespace RunManatea
             RichTextBoxExtensions.AppendText(rtbInfo, text, Color.BlueViolet, 12, false, true);
 
         }
-        public async void Load3MBMovementFile()
+
+        public async void LoadGeneralInfo_3MBMovementFile()
+        {
+            ResetText();
+            var progress = new Progress<string>(
+                               update =>
+                               {
+                                   AddText(update, true);
+                               });
+
+            FileInfo _3mbFile = null;
+            if (set != null && set.A3mbIniFile != null && set.A3mbIniFile != "")
+            {
+                _3mbFile = new FileInfo(set.A3mbIniFile);
+            }
+            else
+
+            {
+                Open3MBMovementFile(false);
+                return;
+            }
+
+
+            _3mbFile = new FileInfo(set.A3mbIniFile);
+            ResetText();
+            List<string> info = animatMovemenInfo();
+
+            bool bReadAnimats = true;
+            if (_3mbFile.Exists)
+            {
+                an.fullpath = _3mbFile.FullName;
+                bReadAnimats |= false;
+                await Task.Run(() =>
+                {
+                    bReadAnimats = an.ReadGeneralInfo(progress);
+                    
+                });
+
+
+                
+
+                SetOtherByScientificName();
+
+                for (int i = 0; i < info.Count; i++)
+                {
+                    string s = info[i];
+                    if (s.Contains("~"))
+                    {
+                        s = s.Replace("^", "");
+                        RichTextBoxExtensions.AppendText(this.rtbInfo, s + "\n", Color.Navy, 10, false, true);
+                    }
+                    else if (s.StartsWith("!"))
+                    {
+                        s = s.Substring(1);
+                        RichTextBoxExtensions.AppendText(this.rtbInfo, s + "\n", Color.Red, 10, true);
+                    }
+                    else
+                        RichTextBoxExtensions.AppendText(this.rtbInfo, s + "\n", Color.Navy, 10);
+                }
+
+
+                if (!bReadAnimats)
+                {
+                    RichTextBoxExtensions.AppendText(this.rtbInfo, "Incorrect file " + _3mbFile.FullName, Color.Red, 10, true);
+
+                    bAnimatCompleted = false;
+                }
+                else
+                    bAnimatCompleted = true;
+            }
+
+            int nAnimatNotSoundSource = 0;
+            for (int i = 0; i < an.File3MB.nAnimats; i++)
+            {
+                Animat animat = an.File3MB.Animats[i];
+                if (animat.IsSoundSource)
+                    continue;
+                nAnimatNotSoundSource++;
+                an.File3MB.AnimatToWrite.Add(animat.indexAnimat);
+            }
+
+            if (an.MaxAnimatWrite < nAnimatNotSoundSource)
+            {
+                int nA = an.MaxAnimatWrite;
+                string message = "Number of animats being exposed is large.\n\rPlease enter a number of inidividual animat results you would like in the summnary file.";
+                int iTry = 0;
+                bool b = false;
+                do
+                {
+                    //  var value = Interaction.InputBox(message, "Number of inidividual animat", nA.ToString());
+
+                    var value = CustomInputBox.ShowDialog(message, "Number of inidividual animat", nA.ToString());
+
+                    if (value != null)
+                        if (value.ToString() != "")
+                            b = int.TryParse(value, out nA);
+                    if (b)
+                        b = nA > 0 && nA < 100;
+                    message = "Number of inidividual animat: " + value + " is incorrect value";
+                    iTry++;
+                } while (!b && iTry < 1);
+
+                an.MaxAnimatWrite = nA;
+                an.File3MB.AnimatToWrite = new List<int>();
+
+                for (int k = 0; k < an.MaxAnimatWrite; k++)
+                {
+                    b = true;
+                    do
+                    {
+                        int rand = GetRandomNumber(0, an.file3MB.Animats.Count);
+                        Animat a = an.file3MB.GetAnimat(rand);
+                        if (a != null && !a.IsSoundSource && !an.File3MB.AnimatToWrite.Contains(rand))
+                        {
+                            an.File3MB.AnimatToWrite.Add(rand);
+                            lh.LogWarning((k + 1).ToString() + ". Will write " + (rand + 1).ToString() + " amnimat");
+                            b = false;
+                        }
+                    } while (b);
+                }
+                an.File3MB.AnimatToWrite.Sort();
+            }
+        }
+            public async void Load3MBMovementFile()
+        {
+
+            ResetText();
+            var progress = new Progress<string>(
+                               update =>
+                               {
+                                   AddText(update, true);
+                               });
+
+            FileInfo _3mbFile = null;
+            if (set != null && set.A3mbIniFile != null && set.A3mbIniFile != "")
+            {
+                _3mbFile = new FileInfo(set.A3mbIniFile);
+            }
+            else
+
+            {
+                Open3MBMovementFile(false);
+                return;
+            }
+
+
+            _3mbFile = new FileInfo(set.A3mbIniFile);
+            bool bReadAnimats = true;
+            if (_3mbFile.Exists)
+            {
+                an.fullpath = _3mbFile.FullName;
+                bReadAnimats |= false;
+                await Task.Run(() =>
+                {
+                    bReadAnimats = an.Read(progress);
+
+                });
+
+
+                ResetText();
+                List<string> info = animatMovemenInfo();
+
+                SetOtherByScientificName();
+
+                for (int i = 0; i < info.Count; i++)
+                {
+                    string s = info[i];
+                    if (s.Contains("~"))
+                    {
+                        s = s.Replace("^", "");
+                        RichTextBoxExtensions.AppendText(this.rtbInfo, s + "\n", Color.Navy, 10, false, true);
+                    }
+                    else if (s.StartsWith("!"))
+                    {
+                        s = s.Substring(1);
+                        RichTextBoxExtensions.AppendText(this.rtbInfo, s + "\n", Color.Red, 10, true);
+                    }
+                    else
+                        RichTextBoxExtensions.AppendText(this.rtbInfo, s + "\n", Color.Navy, 10);
+                }
+
+
+                if (!bReadAnimats)
+                {
+                    RichTextBoxExtensions.AppendText(this.rtbInfo, "Incorrect file " + _3mbFile.FullName, Color.Red, 10, true);
+
+                    bAnimatCompleted = false;
+                }
+                else
+                    bAnimatCompleted = true;
+            }
+
+            int nAnimatNotSoundSource = 0;
+            for (int i = 0; i < an.File3MB.nAnimats; i++)
+            {
+                Animat animat = an.File3MB.Animats[i];
+                if (animat.IsSoundSource)
+                    continue;
+                nAnimatNotSoundSource++;
+                an.File3MB.AnimatToWrite.Add(animat.indexAnimat);
+            }
+
+            if (an.MaxAnimatWrite < nAnimatNotSoundSource)
+            {
+                int nA = an.MaxAnimatWrite;
+                string message = "Number of animats being exposed is large.\n\rPlease enter a number of inidividual animat results you would like in the summnary file.";
+                int iTry = 0;
+                bool b = false;
+                do
+                {
+                    //  var value = Interaction.InputBox(message, "Number of inidividual animat", nA.ToString());
+
+                    var value = CustomInputBox.ShowDialog(message, "Number of inidividual animat", nA.ToString());
+
+                    if (value != null)
+                        if (value.ToString() != "")
+                            b = int.TryParse(value, out nA);
+                    if (b)
+                        b = nA > 0 && nA < 100;
+                    message = "Number of inidividual animat: " + value + " is incorrect value";
+                    iTry++;
+                } while (!b && iTry < 1);
+
+                an.MaxAnimatWrite = nA;
+                an.File3MB.AnimatToWrite = new List<int>();
+
+                for (int k = 0; k < an.MaxAnimatWrite; k++)
+                {
+                    b = true;
+                    do
+                    {
+                        int rand = GetRandomNumber(0, an.file3MB.Animats.Count);
+                        Animat a = an.file3MB.GetAnimat(rand);
+                        if (a != null && !a.IsSoundSource && !an.File3MB.AnimatToWrite.Contains(rand))
+                        {
+                            an.File3MB.AnimatToWrite.Add(rand);
+                            lh.LogWarning((k + 1).ToString() + ". Will write " + (rand + 1).ToString() + " amnimat");
+                            b = false;
+                        }
+                    } while (b);
+                }
+                an.File3MB.AnimatToWrite.Sort();
+            }
+
+
+        }
+        public async void Load3MBMovementFileOLD()
         {
 
             ResetText();

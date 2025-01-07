@@ -151,12 +151,6 @@
     <Compile Include="CheckSoundGridPoint.Designer.cs">
       <DependentUpon>CheckSoundGridPoint.cs</DependentUpon>
     </Compile>
-    <Compile Include="CreateGridBinary.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="CreateGridBinary.Designer.cs">
-      <DependentUpon>CreateGridBinary.cs</DependentUpon>
-    </Compile>
     <Compile Include="LabelAndTextBox2.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -168,12 +162,6 @@
     </Compile>
     <Compile Include="LabelTextBox.Designer.cs">
       <DependentUpon>LabelTextBox.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Manatea.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Manatea.Designer.cs">
-      <DependentUpon>Manatea.cs</DependentUpon>
     </Compile>
     <Compile Include="Marine Mammal_Dictionary.cs" />
     <Compile Include="MarineSpeciesConfiguration.cs">
@@ -195,21 +183,10 @@
     <Compile Include="PileParameterSettingsForm.Designer.cs">
       <DependentUpon>PileParameterSettingsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="PileProgressionForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="PileProgressionForm.Designer.cs">
-      <DependentUpon>PileProgressionForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RichTextBoxExtensions.cs" />
-    <Compile Include="Settings.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Settings.Designer.cs">
-      <DependentUpon>Settings.cs</DependentUpon>
-    </Compile>
+    <Compile Include="Settings.cs" />
     <Compile Include="SoundSourceConfiguration.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -237,17 +214,11 @@
     <EmbeddedResource Include="CheckSoundGridPoint.resx">
       <DependentUpon>CheckSoundGridPoint.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CreateGridBinary.resx">
-      <DependentUpon>CreateGridBinary.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="LabelAndTextBox2.resx">
       <DependentUpon>LabelAndTextBox2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LabelTextBox.resx">
       <DependentUpon>LabelTextBox.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Manatea.resx">
-      <DependentUpon>Manatea.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MarineSpeciesConfiguration.resx">
       <DependentUpon>MarineSpeciesConfiguration.cs</DependentUpon>
@@ -257,9 +228,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PileParameterSettingsForm.resx">
       <DependentUpon>PileParameterSettingsForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="PileProgressionForm.resx">
-      <DependentUpon>PileProgressionForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -271,9 +239,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Settings.resx">
-      <DependentUpon>Settings.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="SoundSourceConfiguration.resx">
       <DependentUpon>SoundSourceConfiguration.cs</DependentUpon>
     </EmbeddedResource>

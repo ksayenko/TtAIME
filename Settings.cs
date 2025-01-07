@@ -23,7 +23,7 @@ namespace RunManatea
         public static string TtAIME_Marine_Mammal_Dictionary_file ="TtAIME_Marine_Mammal_Dictionary";
 
     }
-    public partial class Settings : Form
+    public partial class Settings 
     {
         AppSettings appSet;
 
@@ -31,21 +31,10 @@ namespace RunManatea
 
         public void Initialize2()
         {
-            InitializeComponent();
-            //table panel layout keep disspapera from the controls
             appSet = new AppSettings();   
 
             bool badded = false;
-            foreach (Control c in this.Controls)
-            {
-                if (c.Name == tableLayoutPanel1.Name)
-                {
-                    badded = true; break;
-                }
-            }
-            if (!badded)
-                this.Controls.Add(tableLayoutPanel1);
-
+         
         }
         public Settings(LogHandler lh = null)
         {
@@ -60,34 +49,7 @@ namespace RunManatea
 
             appSet.ReadSettings(logHandler);
 
-            labelTextBox_3mb.LabelText = "Location " + APP_Config_Keys._3mbIniFile;
-            labelTextBox_3mb.TextBoxText = A3mbIniFile;
-            labelTextBox_3mb.IsFile = true;
-
-            labelTextBox_gridcsv.LabelText = "Location " + APP_Config_Keys.gridAsciiFolder;
-            labelTextBox_gridcsv.TextBoxText = GridCSV;
-            labelTextBox_gridcsv.IsFile = true;
-
-            labelTextBox_GridBinary.LabelText = "Location " + APP_Config_Keys.gridBinaryFile;
-            labelTextBox_GridBinary.TextBoxText = GridBinary;
-            labelTextBox_GridBinary.IsFile = true;
-
-            labelTextBox_pileCSV.LabelText = "Location " + APP_Config_Keys.pileCSV;
-            labelTextBox_pileCSV.TextBoxText = PileCSV;
-            labelTextBox_pileCSV.IsFile = true;
-
-            labelTextBox_dbSeaData.LabelText = "Location " + APP_Config_Keys.dbSeaData;
-            labelTextBox_dbSeaData.TextBoxText = DbSeaData;
-            labelTextBox_dbSeaData.IsFolder = true;
-            labelTextBox_dbSeaData.IsFile = false;
-
-            labelTextBox_Out.LabelText = "Location " + APP_Config_Keys.output;
-            labelTextBox_Out.TextBoxText = Output;
-            labelTextBox_Out.IsFolder = true;
-            labelTextBox_Out.IsFile = false;
-
-
-
+     
         }
 
         public string A3mbIniFile 
@@ -141,11 +103,6 @@ namespace RunManatea
                     if (lh != null)
                     {
                         lh.LogError(ex, MethodBase.GetCurrentMethod());
-                        /*
-                        lh.LogError("Error in Save Settings : " + ex.ToString());
-                        if (ex.InnerException != null)
-                            lh.LogError(ex.InnerException.ToString());
-                        */
                     }
                 }
         }
@@ -156,63 +113,13 @@ namespace RunManatea
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            PileCSV = labelTextBox_pileCSV.TextBoxText;
-            GridBinary = labelTextBox_GridBinary.TextBoxText;
-            A3mbIniFile = labelTextBox_3mb.TextBoxText;
-            GridCSV = labelTextBox_gridcsv.TextBoxText; ;
-            DbSeaData = labelTextBox_dbSeaData.TextBoxText;
-            Output = labelTextBox_Out.TextBoxText;
-            SaveSetting(APP_Config_Keys.pileCSV, labelTextBox_pileCSV.TextBoxText, logHandler);
-            SaveSetting(APP_Config_Keys._3mbIniFile, labelTextBox_3mb.TextBoxText, logHandler);
-            SaveSetting(APP_Config_Keys.gridAsciiFolder, labelTextBox_gridcsv.TextBoxText, logHandler);
-            SaveSetting(APP_Config_Keys.gridBinaryFile, labelTextBox_GridBinary.TextBoxText, logHandler);
-            SaveSetting(APP_Config_Keys.dbSeaData, labelTextBox_dbSeaData.TextBoxText, logHandler);
-            SaveSetting(APP_Config_Keys.output, labelTextBox_Out.TextBoxText, logHandler);
-
-            this.Close();
-        }
-
+   
         private void labelTextBox_pileCSV_Load(object sender, EventArgs e)
         {
 
         }
 
-        private void Settings_Load(object sender, EventArgs e)
-        {
-
-            if (PileCSV == null)
-                PileCSV = labelTextBox_pileCSV.TextBoxText = "";
-
-            if (GridBinary == null)
-                GridBinary = labelTextBox_GridBinary.TextBoxText = "";
-            if (A3mbIniFile == null)
-                A3mbIniFile = labelTextBox_3mb.TextBoxText = "";
-            if (GridCSV == null)
-            {
-                GridCSV = labelTextBox_gridcsv.TextBoxText = "";
-
-            }
-            if (DbSeaData == null)
-            {
-                DbSeaData = labelTextBox_dbSeaData.TextBoxText = "";
-
-            }
-            if (Output == null)
-            {
-                Output = labelTextBox_Out.TextBoxText = "";
-
-            }
-            tableLayoutPanel1.Visible = true;
-            labelTextBox_dbSeaData.Visible = labelTextBox_dbSeaData.Visible = true;
-
-        }
-
-        private void labelTextBox_Out_Load(object sender, EventArgs e)
-        {
-
-        }
+   
     }
 
     public class AppSettings

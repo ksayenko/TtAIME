@@ -325,7 +325,8 @@ namespace RunManatea
             LoadMarineSpeciesConfiguration(true);
         
             msControl.Open3MBMovementFile();
-           msControl.Load3MBMovementFile();
+            msControl.LoadGeneralInfo_3MBMovementFile();
+           // msControl.Load3MBMovementFile();
         }
 
         private void btnStartOver_Click(object sender, EventArgs e)
